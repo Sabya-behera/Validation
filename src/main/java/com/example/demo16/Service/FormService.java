@@ -14,4 +14,22 @@ public class FormService {
     {
         return formRepository.save(form);
     }
+    public Form getById(int id)
+    {
+        return formRepository.getById(id);
+    }
+    public Form updateForm(int id,Form form)
+    {
+        Form form1 = formRepository.getById(id);
+        form1.setName(form.getName());
+        form1.setEmail(form.getEmail());
+        form1.setPhno(form.getPhno());
+        form1.setPassword(form.getPassword());
+        formRepository.save(form1);
+        return form1;
+    }
+    public void deleteForm(int id)
+    {
+        formRepository.deleteById(id);
+    }
 }

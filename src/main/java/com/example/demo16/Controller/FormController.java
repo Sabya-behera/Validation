@@ -19,5 +19,21 @@ public class FormController {
         System.out.println("Its Working");
         return savedUser;
     }
+    @GetMapping("/get/{id}")
+    public Form getById(@PathVariable("id") int id)
+    {
+        return formService.getById(id);
+    }
+    @PutMapping("/put")
+    public Form updateForm(@PathVariable int id,@Valid @RequestBody Form form)
+    {
+         formService.updateForm(id,form);
+         return form;
+    }
+    @DeleteMapping("/delete/{id}")
+    public void deleteForm(@PathVariable("id") int id)
+    {
+        formService.deleteForm(id);
+    }
 
 }
